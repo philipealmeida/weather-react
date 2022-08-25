@@ -149,6 +149,9 @@ article {
 }
 
 aside {
+	display: flex;
+	flex-flow: column;
+	justify-content: space-between;
 	min-width: 30%;
 	padding: var(--padding-wrapper);
 	background-color: var(--color-dark-blue);
@@ -209,44 +212,46 @@ aside header .user-avatar {
 	border-radius: 50%;
 }
 
-aside .current-conditions {
+aside .daily-conditions {
 	margin: 4.4rem 0;
 	text-align: center;
 	display: flex;
 	flex-flow: column;
 }
 
-aside .current-conditions .date-conditions {
+aside .daily-conditions .date-conditions {
 	display: flex;
 	align-items: center;
 	justify-content: center;
 }
 
-aside .current-conditions .date-conditions picture {
-	width: 24px;
-	height: 24px;
-	background-color: orange;
-	margin-right: 1rem;
+aside .daily-conditions .date-conditions picture {
+	width: 45px;
+	margin-right: .5rem;
 }
 
-aside .current-conditions .date-conditions .date-info {
+aside .daily-conditions .date-conditions picture img {
+	width: 100%;
+}
+
+aside .daily-conditions .date-conditions .date-info {
 	display: flex;
 	text-align: left;
 	flex-flow: column;
 }
 
-aside .current-conditions .date-conditions .date-info .day {
+aside .daily-conditions .date-conditions .date-info .day {
 	font-size: var(--font-size-p17);
 	margin-bottom: 0.2rem;
 }
 
-aside .current-conditions .date-conditions .date-info .week-day {
+aside .daily-conditions .date-conditions .date-info .week-day {
 	font-size: var(--font-size-p10);
 	font-weight: 200;
 	color: var(--color-gray-light);
 }
 
-aside .current-conditions .temperature-value {
+aside .daily-conditions .temperature-value {
 	font-size: 6rem;
 	font-weight: 200;
 	vertical-align: top;
@@ -254,72 +259,59 @@ aside .current-conditions .temperature-value {
 	position: relative;
 }
 
-aside .current-conditions .temperature-value .celsius {
+aside .daily-conditions .temperature-value .celsius {
 	font-size: 2rem;
 	font-size: 2rem;
 	position: absolute;
-	top: 1rem;
+	top: 0.5rem;
 	color: var(--color-gray-light);
 }
 
-aside .current-conditions .city-name {
+aside .daily-conditions .city-name {
 	font-size: var(--font-size-p12);
 	color: var(--color-gray-light);
 }
 
-aside .chance-to-rain {
+aside .weekly-forecast {
 	font-size: var(--font-size-p12);
 	font-weight: 200;
 	display: flex;
 	flex-flow: column;
-	padding: 0 1.4rem;
 }
 
-aside .chance-to-rain .title {
+aside .weekly-forecast .title {
 	font-size: 0.8rem;
 }
 
-aside .chance-to-rain .row {
+aside .weekly-forecast .row {
 	display: flex;
 	margin-top: 1.5rem;
-}
-
-aside .chance-to-rain .rain-chances {
-	display: flex;
-	flex-flow: column;
-}
-
-aside .chance-to-rain .rain-chances span {
-	margin-top: 2.3rem;
-}
-
-aside .chance-to-rain .rain-chances span:first-child {
-	margin: 0;
-}
-
-aside .chance-to-rain .charts {
-	width: 100%;
-	display: flex;
-	padding: 0 0.5rem;
 	justify-content: space-between;
-	align-items: self-end;
+	padding-left: 2rem;
+	align-content: center;
+	text-align: center;
+	font-size: 0.8rem;
 }
 
-aside .chance-to-rain .charts span {
-	position: relative;
-	width: 0.6rem;
-	height: 100%;
-	background-color: #333163;
-	border-radius: 2rem;
+aside .weekly-forecast .col div,
+aside .weekly-forecast .col picture{
+	margin-top: .5rem;
 }
 
-aside .chance-to-rain .charts span.active {
-	background-color: var(--color-mostard);
+aside .weekly-forecast .temp{
+	font-size: 1rem;
 }
 
-aside .chance-to-rain .daily-hours {
-	display: flex;
-	justify-content: space-between;
-	padding-left: 2.8rem;
-	margin-top: 0.8rem;
+aside .weekly-forecast .min-temp{
+	margin-top: 0.1rem;
+}
+
+aside .weekly-forecast picture{
+	width: 40px;
+	height: 40px;
+	display: inline-block;
+}
+
+aside .weekly-forecast picture img{
+	max-width: 100%;
 }

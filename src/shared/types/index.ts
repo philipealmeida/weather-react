@@ -79,3 +79,8 @@ export type City = {
   lat: number;
   long: number;
 }
+
+export type Temperatures = {
+  min: number;
+  max: number;
+}
