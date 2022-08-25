@@ -299,7 +299,7 @@ aside .weekly-forecast .row {
 	display: flex;
 	margin-top: 1.5rem;
 	justify-content: space-between;
-	padding-left: 2rem;
+	padding: 0 1.8em;
 	align-content: center;
 	text-align: center;
 	font-size: 0.8rem;
