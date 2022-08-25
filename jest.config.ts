@@ -1,4 +1,8 @@
 export default {
+  collectCoverage: true,
+  coverageDirectory: 'coverage',
+  collectCoverageFrom: ['src/**/*.([j|t]s?(x))', '!src/**/*.entity.ts'],
+  coverageReporters: ['json', 'html'],
   testEnvironment: "jsdom",
   transform: {
     "^.+\\.tsx?$": "ts-jest"
