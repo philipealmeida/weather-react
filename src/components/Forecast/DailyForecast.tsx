@@ -1,17 +1,17 @@
-import { List, Temperatures } from "../../shared/types";
+import { List, DailyTemperatures } from "../../shared/types";
 
 type Props = {
   list: List;
-  minMax: Temperatures;
+  daily: DailyTemperatures;
 };
 
-function DailyForecast({list, minMax}: Props) {
-  if (!list || !minMax) return <div></div>;
+function DailyForecast({list, daily}: Props) {
+  if (!list || !daily) return <div></div>;
   return (
     <>
-      <div className="day">Today</div>
-      <div className="temp">{minMax.min}°</div>
-      <div className="min-temp">{minMax.max}°</div>
+    <div className="day">{daily.day}</div>
+      <div className="temp">{daily.min}°</div>
+      <div className="min-temp">{daily.max}°</div>
       <picture>
         <img src={`http://openweathermap.org/img/wn/${list.weather[0].icon}@2x.png`} alt="daily-weather-icon" />
       </picture>

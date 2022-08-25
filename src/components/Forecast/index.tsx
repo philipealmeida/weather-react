@@ -1,6 +1,6 @@
 import moment from "moment";
 import { useEffect, useState } from "react";
-import { City, OpenWeather, Temperatures } from "../../shared/types";
+import { City, OpenWeather, DailyTemperatures } from "../../shared/types";
 import DailyForecast from "./DailyForecast";
 
 type Props = {
@@ -9,7 +9,7 @@ type Props = {
 };
 
 function Forecast({ selectedCity, data }: Props) {
-  const [minMaxTemp, setMinMaxTemp] = useState<Temperatures[]>([{ min: 0, max: 0 }]);
+  const [minMaxTemp, setMinMaxTemp] = useState<DailyTemperatures[]>([{ day: 'Todayx', min: 0, max: 0 }]);
   const preparedData = (data: OpenWeather) => {
     return [
       ...[data.list[3]],
@@ -55,11 +55,11 @@ function Forecast({ selectedCity, data }: Props) {
       }));
 
       return [
-        { min: Math.floor(Math.min(...days[0].min)), max: Math.floor(Math.max(...days[0].max)) },
-        { min: Math.floor(Math.min(...days[1].min)), max: Math.floor(Math.max(...days[1].max)) },
-        { min: Math.floor(Math.min(...days[2].min)), max: Math.floor(Math.max(...days[2].max)) },
-        { min: Math.floor(Math.min(...days[3].min)), max: Math.floor(Math.max(...days[3].max)) },
-        { min: Math.floor(Math.min(...days[4].min)), max: Math.floor(Math.max(...days[4].max)) },
+        { day: 'Today', min: Math.floor(Math.min(...days[0].min)), max: Math.floor(Math.max(...days[0].max)) },
+        { day: `${moment(moment().add(1, 'days')).format("D")} ${moment(moment().add(1, 'days')).format("MMM")}`, min: Math.floor(Math.min(...days[1].min)), max: Math.floor(Math.max(...days[1].max)) },
+        { day: `${moment(moment().add(2, 'days')).format("D")} ${moment(moment().add(2, 'days')).format("MMM")}`, min: Math.floor(Math.min(...days[2].min)), max: Math.floor(Math.max(...days[2].max)) },
+        { day: `${moment(moment().add(3, 'days')).format("D")} ${moment(moment().add(3, 'days')).format("MMM")}`, min: Math.floor(Math.min(...days[3].min)), max: Math.floor(Math.max(...days[3].max)) },
+        { day: `${moment(moment().add(4, 'days')).format("D")} ${moment(moment().add(4, 'days')).format("MMM")}`, min: Math.floor(Math.min(...days[4].min)), max: Math.floor(Math.max(...days[4].max)) },
       ];
     }
     setMinMaxTemp(weeklyMinMaxTemp(data));
@@ -92,7 +92,7 @@ function Forecast({ selectedCity, data }: Props) {
         <div className="row">
           {data.list && preparedData(data).map((list, index) => (
             <div className="col" key={list.dt}>
-              <DailyForecast list={list} minMax={minMaxTemp[index]} />
+              <DailyForecast list={list} daily={minMaxTemp[index]} />
             </div>
           ))}
         </div>

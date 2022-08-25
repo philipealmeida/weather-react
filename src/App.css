@@ -73,7 +73,7 @@ article {
 	border: 0;
 	width: 39%;
 	font-size: 0.75rem;
-	background: #fff url(https://dummyimage.com/19x19/000/fff.jpg&text=M) no-repeat 1rem center;
+	background: #fff url(/images/filter.svg) no-repeat 1rem center;
 	padding-left: 3rem;
 }
 
@@ -208,7 +208,19 @@ aside header a {
 aside header .user-avatar {
 	width: 42px;
 	height: 42px;
-	background: red;
+	background: #fff url(/images/av-fig.jpg) no-repeat center center/cover;
+	border-radius: 50%;
+	position: relative;
+}
+
+aside .user-avatar:before {
+	content: '';
+	position: absolute;
+	top: 0;
+	width: 10px;
+	height: 10px;
+	background-color: red;
+	right: 0;
 	border-radius: 50%;
 }
 
@@ -274,7 +286,7 @@ aside .daily-conditions .city-name {
 
 aside .weekly-forecast {
 	font-size: var(--font-size-p12);
-	font-weight: 200;
+	font-weight: 400;
 	display: flex;
 	flex-flow: column;
 }
@@ -293,8 +305,7 @@ aside .weekly-forecast .row {
 	font-size: 0.8rem;
 }
 
-aside .weekly-forecast .col div,
-aside .weekly-forecast .col picture{
+aside .weekly-forecast .col div{
 	margin-top: .5rem;
 }
 
@@ -302,8 +313,9 @@ aside .weekly-forecast .temp{
 	font-size: 1rem;
 }
 
-aside .weekly-forecast .min-temp{
+aside .weekly-forecast .col .min-temp{
 	margin-top: 0.1rem;
+	font-size: 0.75rem;
 }
 
 aside .weekly-forecast picture{

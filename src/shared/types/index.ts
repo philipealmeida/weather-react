@@ -80,7 +80,8 @@ export type City = {
   long: number;
 }
 
-export type Temperatures = {
+export type DailyTemperatures = {
+  day: string;
   min: number;
   max: number;
 }
