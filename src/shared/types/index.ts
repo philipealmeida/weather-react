@@ -81,7 +81,15 @@ export type City = {
 }
 
 export type DailyTemperatures = {
+  icon: string;
   day: string;
   min: number;
   max: number;
+}
+
+export type DailyTemperaturesAccumulator = {
+  icon: string;
+  day: string;
+  acc_min: number[];
+  acc_max: number[];
 }

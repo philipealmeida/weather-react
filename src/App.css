@@ -309,13 +309,9 @@ aside .weekly-forecast .col div{
 	margin-top: .5rem;
 }
 
-aside .weekly-forecast .temp{
+aside .weekly-forecast .col .min-temp,
+aside .weekly-forecast .col .max-temp{
 	font-size: 1rem;
-}
-
-aside .weekly-forecast .col .min-temp{
-	margin-top: 0.1rem;
-	font-size: 0.75rem;
 }
 
 aside .weekly-forecast picture{

@@ -1,6 +1,7 @@
 import moment from "moment";
 import { useEffect, useState } from "react";
 import { City, OpenWeather, DailyTemperatures } from "../../shared/types";
+import { formatWeekly } from "../../shared/utils";
 import DailyForecast from "./DailyForecast";
 
 type Props = {
@@ -9,58 +10,27 @@ type Props = {
 };
 
 function Forecast({ selectedCity, data }: Props) {
-  const [minMaxTemp, setMinMaxTemp] = useState<DailyTemperatures[]>([{ day: 'Todayx', min: 0, max: 0 }]);
+  const [minMaxTemp, setMinMaxTemp] = useState<DailyTemperatures[]>([{ day: '', icon: '', min: 0, max: 0 }]);
   const preparedData = (data: OpenWeather) => {
     return [
-      ...[data.list[3]],
-      ...[data.list[11]],
-      ...[data.list[19]],
-      ...[data.list[27]],
-      ...[data.list[35]],
+      ...[data.list[0]],
+      ...[data.list[8]],
+      ...[data.list[16]],
+      ...[data.list[24]],
+      ...[data.list[32]],
     ]
   };
 
   useEffect(() => {
     const weeklyMinMaxTemp = (data: OpenWeather) => {
-      // get min and max temperature of each day (each 8 data.list obj)
-      let days = [
-        { min: [], max: [] },
-        { min: [], max: [] },
-        { min: [], max: [] },
-        { min: [], max: [] },
-        { min: [], max: [] },
-      ] as any;
-
-      data.list.forEach(((e, i) => {
-        if (i < 8) {
-          days[0].min.push(e.main.temp_min);
-          days[0].max.push(e.main.temp_max);
-        }
-        if (i < 16) {
-          days[1].min.push(e.main.temp_min);
-          days[1].max.push(e.main.temp_max);
-        }
-        if (i < 24) {
-          days[2].min.push(e.main.temp_min);
-          days[2].max.push(e.main.temp_max);
-        }
-        if (i < 32) {
-          days[3].min.push(e.main.temp_min);
-          days[3].max.push(e.main.temp_max);
-        }
-        if (i < 40) {
-          days[4].min.push(e.main.temp_min);
-          days[4].max.push(e.main.temp_max);
-        }
-      }));
-
+      const days = formatWeekly(data); 
       return [
-        { day: 'Today', min: Math.floor(Math.min(...days[0].min)), max: Math.floor(Math.max(...days[0].max)) },
-        { day: `${moment(moment().add(1, 'days')).format("D")} ${moment(moment().add(1, 'days')).format("MMM")}`, min: Math.floor(Math.min(...days[1].min)), max: Math.floor(Math.max(...days[1].max)) },
-        { day: `${moment(moment().add(2, 'days')).format("D")} ${moment(moment().add(2, 'days')).format("MMM")}`, min: Math.floor(Math.min(...days[2].min)), max: Math.floor(Math.max(...days[2].max)) },
-        { day: `${moment(moment().add(3, 'days')).format("D")} ${moment(moment().add(3, 'days')).format("MMM")}`, min: Math.floor(Math.min(...days[3].min)), max: Math.floor(Math.max(...days[3].max)) },
-        { day: `${moment(moment().add(4, 'days')).format("D")} ${moment(moment().add(4, 'days')).format("MMM")}`, min: Math.floor(Math.min(...days[4].min)), max: Math.floor(Math.max(...days[4].max)) },
-      ];
+        { day: 'Today', icon: days[0].icon, min: Math.floor(Math.min(...days[0].acc_min)), max: Math.floor(Math.max(...days[0].acc_max)) },
+        { day: `${moment(moment().add(1, 'days')).format("D")} ${moment(moment().add(1, 'days')).format("MMM")}`, icon: days[1].icon, min: Math.floor(Math.min(...days[1].acc_min)), max: Math.floor(Math.max(...days[1].acc_max)) },
+        { day: `${moment(moment().add(2, 'days')).format("D")} ${moment(moment().add(2, 'days')).format("MMM")}`, icon: days[2].icon, min: Math.floor(Math.min(...days[2].acc_min)), max: Math.floor(Math.max(...days[2].acc_max)) },
+        { day: `${moment(moment().add(3, 'days')).format("D")} ${moment(moment().add(3, 'days')).format("MMM")}`, icon: days[3].icon, min: Math.floor(Math.min(...days[3].acc_min)), max: Math.floor(Math.max(...days[3].acc_max)) },
+        { day: `${moment(moment().add(4, 'days')).format("D")} ${moment(moment().add(4, 'days')).format("MMM")}`, icon: days[4].icon, min: Math.floor(Math.min(...days[4].acc_min)), max: Math.floor(Math.max(...days[4].acc_max)) },
+      ] as DailyTemperatures[];
     }
     setMinMaxTemp(weeklyMinMaxTemp(data));
   }, [data]);
@@ -92,7 +62,7 @@ function Forecast({ selectedCity, data }: Props) {
         <div className="row">
           {data.list && preparedData(data).map((list, index) => (
             <div className="col" key={list.dt}>
-              <DailyForecast list={list} daily={minMaxTemp[index]} />
+              <DailyForecast daily={minMaxTemp[index]} />
             </div>
           ))}
         </div>
