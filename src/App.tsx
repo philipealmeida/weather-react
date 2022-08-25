@@ -70,6 +70,8 @@ function App() {
       </main>
     )
   }
+
+  return <div></div>;
 }
 
 export default App;
