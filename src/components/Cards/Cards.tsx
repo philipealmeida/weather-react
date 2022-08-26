@@ -7,7 +7,7 @@ type Props = {
   selectedCity: City;
 };  
 
-export function Cards({cities, selectCity, selectedCity}: Props) {
+function Cards({cities, selectCity, selectedCity}: Props) {
 
   return (
     <section className="cards">
@@ -23,3 +23,5 @@ export function Cards({cities, selectCity, selectedCity}: Props) {
     </section>
   )
 }
+
+export default Cards;
