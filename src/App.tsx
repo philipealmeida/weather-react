@@ -2,7 +2,7 @@ import React, { FormEvent, useEffect, useState } from "react";
 import { cities, weatherAPI } from './shared/utils/'
 import { City, OpenWeather } from "./shared/types";
 import './App.css'
-import Cards from "./components/cards/Cards";
+import Grid from "./components/cards/Grid";
 import {AsideHeader} from "./components/headers/AsideHeader";
 import {Forecast} from "./components/forecast/Forecast";
 
@@ -59,7 +59,7 @@ function App() {
               </section>
               <h1 className="hero-title">World<span className="bold"> Weather</span></h1>
             </header>
-            <Cards cities={filtered} selectCity={selectCity} selectedCity={selectedCity} />
+            <Grid cities={filtered} selectCity={selectCity} selectedCity={selectedCity} />
           </section>
 
           <aside>
