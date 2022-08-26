@@ -7,6 +7,7 @@
 
 	--color-dark-mode-white: #E9E9E9;
 	--color-dark-mode-light-blue: #9292DB;
+	--color-dark-mode-blue-secondary: #1E1D46;
 
 
 	--color-dark-blue: #100f3b;
@@ -162,7 +163,7 @@ aside {
 	display: flex;
 	flex-flow: column;
 	justify-content: space-between;
-	min-width: 30%;
+	min-width: 29%;
 	padding: var(--padding-wrapper);
 	background-color: var(--color-dark-blue);
 	color: #fff;
@@ -348,6 +349,10 @@ aside .weekly-forecast picture img{
 
 	article{
 		background: radial-gradient(29.63% 90.27% at 32.01% 49.35%, #1E1D45 0%, #100F3B 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+	}
+
+	aside{
+		background-color: var(--color-dark-mode-blue-secondary);
 	}
 
 	aside, aside header a{
