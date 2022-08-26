@@ -4,7 +4,7 @@ type Props = {
   daily: DailyTemperatures;
 };
 
-function DailyForecast({daily}: Props) {
+export function Daily({daily}: Props) {
   if (!daily) return <div></div>;
   return (
     <>
@@ -17,5 +17,3 @@ function DailyForecast({daily}: Props) {
     </>
   )
 }
-
-export default DailyForecast;

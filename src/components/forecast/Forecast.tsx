@@ -2,7 +2,7 @@ import moment from "moment";
 import { useEffect, useState } from "react";
 import { City, OpenWeather, DailyTemperatures } from "../../shared/types";
 import { formatWeekly } from "../../shared/utils";
-import DailyForecast from "./DailyForecast";
+import Daily from "./Daily";
 
 type Props = {
   data: OpenWeather;
@@ -62,7 +62,7 @@ export function Forecast({ selectedCity, data }: Props) {
         <div className="row">
           {data.list && preparedData(data).map((list, index) => (
             <div className="col" key={list.dt}>
-              <DailyForecast daily={minMaxTemp[index]} />
+              <Daily daily={minMaxTemp[index]} />
             </div>
           ))}
         </div>
