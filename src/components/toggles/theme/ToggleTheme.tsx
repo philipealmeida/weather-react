@@ -1,45 +1,15 @@
-import React, { useState, useEffect } from "react";
-import SunIcon from "./images/icon-sun.svg";
-import MoonIcon from "./images/icon-moon.svg";
+import React, { useState, useEffect, KeyboardEvent } from "react";
 
 const updateTheme = (isDarkEnabled: boolean) => {
-  // Get CSS variables for background/foreground
-  const styles = getComputedStyle(document.body);
-  const black = styles.getPropertyValue("--black");
-  const white = styles.getPropertyValue("--white");
-  const docEl = document.documentElement;
-
   if (isDarkEnabled) {
-    docEl.style.setProperty("--background", black);
-    docEl.style.setProperty("--foreground", white);
     document.querySelector<HTMLInputElement>("html")?.classList.add("darkmode");
-
   } else {
-    docEl.style.setProperty("--background", white);
-    docEl.style.setProperty("--foreground", black);
     document.querySelector("html")?.classList.remove("darkmode");
   }
 };
 
-export default function ThemeToggle() {
+export default function ToggleTheme() {
   const [isEnabled, setIsEnabled] = useState(false);
-
-  /*
-   * Read the blog post here:
-   * https://letsbuildui.dev/articles/building-a-dark-mode-theme-toggle
-   */
-
-  useEffect(() => {
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
-      updateTheme(event.matches);
-      console.log(33);
-      console.log(event.matches);
-    });
-    return () => {
-      window.matchMedia('(prefers-color-scheme: dark)').removeEventListener('change', function () { });
-    }
-  }, [])
-
 
   useEffect(() => {
     updateTheme(isEnabled);
@@ -49,8 +19,17 @@ export default function ThemeToggle() {
     setIsEnabled((prevState) => !prevState);
   };
 
+  const handleKeyDown = (e: KeyboardEvent<HTMLLabelElement>) => {
+    if (e.key === 'Enter' || e.key === ' ')
+      toggleState();
+  };
+
   return (
-    <label className="toggle-wrapper" htmlFor="toggle">
+    <label
+      className="toggle-wrapper"
+      tabIndex={0} 
+      onKeyDown={handleKeyDown} 
+      htmlFor="toggle">
       <div className={`toggle ${isEnabled ? "enabled" : "disabled"}`}>
         <input
           id="toggle"
@@ -58,11 +37,7 @@ export default function ThemeToggle() {
           type="checkbox"
           onChange={toggleState}
         />
-        {/* <span hidden>
-          {isEnabled ? "Enable Light Mode" : "Enable Dark Mode"}
-        </span> */}
         <div className="toggle-selector">
-
           <div className="wrapper-icons">
             {isEnabled ? <svg width="24" height="24" className="moon" viewBox="0 0 24 24" fill="#E9E9E9" xmlns="http://www.w3.org/2000/svg">
               <path d="M12 11.807C10.7418 10.5483 9.88488 8.94484 9.53762 7.1993C9.19037 5.45375 9.36832 3.64444 10.049 2C8.10826 2.38205 6.3256 3.33431 4.92899 4.735C1.02399 8.64 1.02399 14.972 4.92899 18.877C8.83499 22.783 15.166 22.782 19.072 18.877C20.4723 17.4805 21.4245 15.6983 21.807 13.758C20.1625 14.4385 18.3533 14.6164 16.6077 14.2692C14.8622 13.9219 13.2588 13.0651 12 11.807V11.807Z" />
@@ -73,11 +48,8 @@ export default function ThemeToggle() {
               <path d="M6.34402 7.75902L4.22302 5.63702L5.63802 4.22302L7.75802 6.34502L6.34402 7.75902Z" />
               <path d="M19.778 18.3639L18.364 19.7779L16.242 17.6559L17.656 16.2419L19.778 18.3639Z" />
             </svg>}
-
-
           </div>
         </div>
-
       </div>
     </label>
   );

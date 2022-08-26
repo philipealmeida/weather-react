@@ -3,8 +3,8 @@ import { cities, weatherAPI } from './shared/utils/'
 import { City, OpenWeather } from "./shared/types";
 import './App.css'
 import {Grid} from "./components/grid/Grid";
-import {AsideHeader} from "./components/header/AsideHeader";
 import {Forecast} from "./components/forecast/Forecast";
+import { AsideHeader } from "./components/header/aside/AsideHeader";
 
 function App() {
   const [filter, setFilter] = useState<string>('');

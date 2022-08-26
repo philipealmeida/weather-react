@@ -1,5 +1,6 @@
 import { City } from "../../shared/types";
 import {Card} from "./Card";
+import "./Grid.css";
 
 type Props = {
   cities: City[];

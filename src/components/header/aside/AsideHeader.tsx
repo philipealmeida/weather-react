@@ -1,6 +1,6 @@
 import React from 'react'
-import ToggleTheme from '../toggle-theme/ToggleTheme'
-
+import ToggleTheme from '../../toggles/theme/ToggleTheme'
+import "./AsideHeader.css";
 export function AsideHeader() {
   return (
     <>

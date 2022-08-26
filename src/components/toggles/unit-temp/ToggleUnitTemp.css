@@ -1,0 +1,44 @@
+.toggle-unit-temp {
+	display: inline-block;
+	padding-top: 0.8rem;
+	transition: var(--transition-default);
+}
+
+.toggle-unit-temp .toggle-selector {
+	width: 55px;
+	height: 16px;
+}
+
+.toggle-unit-temp .toggle-selector svg {
+	height: 50px;
+}
+
+.toggle-unit-temp .toggle-selector .wrapper-icons {
+	width: 45%;
+	height: 11.5px;
+	border-radius: 0.6rem;
+	z-index: 5;
+	position: absolute;
+	left: 0;
+	background-color: var(--color-dark-mode-light-blue);
+}
+
+.toggle-unit-temp .toggle-selector:before,
+.toggle-unit-temp .toggle-selector:after {
+	font-size: 0.8rem;
+	position: absolute;
+}
+
+.toggle-unit-temp .toggle-selector:after {
+	content: 'C°';
+	right: 6px;
+}
+
+.toggle-unit-temp .toggle-selector:before {
+	content: 'F°';
+	left: 6px;
+}
+
+.toggle-unit-temp .toggle.enabled .wrapper-icons {
+	transform: translateX(100%);
+}

@@ -1,0 +1,176 @@
+
+aside {
+	display: flex;
+	flex-flow: column;
+	justify-content: space-between;
+	min-width: 29%;
+	padding: var(--padding-wrapper);
+	background-color: var(--color-dark-blue);
+	color: #fff;
+	border-top-right-radius: var(--border-radius-primary);
+	border-bottom-right-radius: var(--border-radius-primary);
+}
+
+aside header {
+	display: flex;
+	flex-flow: nowrap;
+	align-items: center;
+	justify-content: space-between;
+	font-weight: 400;
+}
+
+aside header ul {
+	align-items: center;
+}
+
+aside header ul,
+aside header li {
+	margin: 0;
+	padding: 0;
+}
+
+aside header ul {
+	list-style-type: none;
+	display: flex;
+	color: #fff;
+}
+
+aside header li {
+	margin-right: 1rem;
+}
+
+aside header .alerts {
+	display: inline-block;
+	background-color: red;
+	padding: 0.18rem 0.35rem;
+	margin-left: 0.1em;
+	font-size: 0.8rem;
+	vertical-align: middle;
+	border-radius: 6px;
+	text-align: center;
+}
+
+aside header a {
+	color: #fff;
+	font-size: 0.7rem;
+	text-decoration: none;
+}
+
+aside header .user-avatar {
+	width: 42px;
+	height: 42px;
+	background: #fff url(/images/av-fig.jpg) no-repeat center center/cover;
+	border-radius: 50%;
+	position: relative;
+}
+
+aside .user-avatar:before {
+	content: '';
+	position: absolute;
+	top: 0;
+	width: 10px;
+	height: 10px;
+	background-color: red;
+	right: 0;
+	border-radius: 50%;
+}
+
+aside .daily-conditions {
+	margin: 4.4rem 0;
+	text-align: center;
+	display: flex;
+	flex-flow: column;
+}
+
+aside .daily-conditions .date-conditions {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+aside .daily-conditions .date-conditions picture {
+	width: 45px;
+	margin-right: .5rem;
+}
+
+aside .daily-conditions .date-conditions picture img {
+	width: 100%;
+}
+
+aside .daily-conditions .date-conditions .date-info {
+	display: flex;
+	text-align: left;
+	flex-flow: column;
+}
+
+aside .daily-conditions .date-conditions .date-info .day {
+	font-size: var(--font-size-p17);
+	margin-bottom: 0.2rem;
+}
+
+aside .daily-conditions .date-conditions .date-info .week-day {
+	font-size: var(--font-size-p10);
+	font-weight: 200;
+	color: var(--color-gray-light);
+}
+
+aside .daily-conditions .temperature-value {
+	font-size: 6rem;
+	font-weight: 200;
+	vertical-align: top;
+	line-height: 1;
+	position: relative;
+}
+
+aside .daily-conditions .temperature-value .celsius {
+	font-size: 2rem;
+	font-size: 2rem;
+	position: absolute;
+	top: 0.5rem;
+	color: var(--color-gray-light);
+}
+
+aside .daily-conditions .city-name {
+	font-size: var(--font-size-p12);
+	color: var(--color-gray-light);
+}
+
+aside .weekly-forecast {
+	font-size: var(--font-size-p12);
+	font-weight: 400;
+	display: flex;
+	flex-flow: column;
+}
+
+aside .weekly-forecast .title {
+	font-size: 0.8rem;
+}
+
+aside .weekly-forecast .row {
+	display: flex;
+	margin-top: 1.5rem;
+	justify-content: space-between;
+	padding: 0 1.8em;
+	align-content: center;
+	text-align: center;
+	font-size: 0.8rem;
+}
+
+aside .weekly-forecast .col div {
+	margin-top: .5rem;
+}
+
+aside .weekly-forecast .col .min-temp,
+aside .weekly-forecast .col .max-temp {
+	font-size: 1rem;
+}
+
+aside .weekly-forecast picture {
+	width: 40px;
+	height: 40px;
+	display: inline-block;
+}
+
+aside .weekly-forecast picture img {
+	max-width: 100%;
+}

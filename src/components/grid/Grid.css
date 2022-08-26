@@ -1,0 +1,59 @@
+.hero .cards .row {
+	display: flex;
+	flex-flow: row wrap;
+	align-items: self-end;
+}
+
+.hero .cards .row:nth-of-type(2) {
+	margin-top: 2rem;
+}
+
+.hero .cards .card:hover {
+	transform: translateY(-5px);
+}
+
+.hero .cards .card {
+	text-align: center;
+	width: 21%;
+	cursor: pointer;
+	margin-left: 5%;
+	margin-top: 3.4em;
+	transition: var(--transition-default);
+}
+
+.hero .cards .card:nth-child(4n+1) {
+	margin-left: 0;
+}
+
+.hero .cards .card .wrapper-image-card {
+	width: 100%;
+	border-radius: var(--border-radius-primary);
+	overflow: hidden;
+	transition: var(--transition-default);
+	max-height: 190px;
+	aspect-ratio: 1/1.1;
+}
+
+.hero .cards .card .wrapper-image-card img {
+	transition: var(--transition-default);
+	aspect-ratio: 1/1.1;
+	object-fit: cover;
+	width: 100%;
+}
+
+.hero .cards .card.active {
+	filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, 0.2));
+}
+
+.hero .cards .card.active .wrapper-image-card {
+	aspect-ratio: 1/1.3;
+}
+
+.hero .cards .card.active .wrapper-image-card img {
+	aspect-ratio: 1/1.3;
+}
+
+.hero .cards .card .card-title {
+	margin: 0.45rem 0 0;
+	font-size: var(--font-size-p10);
+}

@@ -2,6 +2,7 @@ import moment from "moment";
 import { useEffect, useState } from "react";
 import { City, OpenWeather, DailyTemperatures } from "../../shared/types";
 import { formatWeekly } from "../../shared/utils";
+import ToggleUnitTemp from "../toggles/unit-temp/ToggleUnitTemp";
 import {Daily} from "./Daily";
 
 type Props = {
@@ -55,6 +56,9 @@ export function Forecast({ selectedCity, data }: Props) {
         </div>
         <span className="temperature-value">{Math.round(preparedData(data)[0].main.feels_like)}<span className="celsius">°C</span></span>
         <span className="city-name">{selectedCity.name}, {selectedCity.country}</span>
+        <div>
+          <ToggleUnitTemp/>
+        </div>
       </section>
 
       <section className="weekly-forecast">

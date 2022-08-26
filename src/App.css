@@ -96,244 +96,15 @@ article {
 	color: var(--color-dark-blue);
 }
 
-.hero .cards .row {
-	display: flex;
-	flex-flow: row wrap;
-	align-items: self-end;
-}
-
-.hero .cards .row:nth-of-type(2) {
-	margin-top: 2rem;
-}
-
-.hero .cards .card:hover {
-	transform: translateY(-5px);
-}
-
-.hero .cards .card {
-	text-align: center;
-	width: 21%;
-	cursor: pointer;
-	margin-left: 5%;
-	margin-top: 3.4em;
-	transition: var(--transition-default);
-}
-
-.hero .cards .card:nth-child(4n+1) {
-	margin-left: 0;
-}
-
-.hero .cards .card .wrapper-image-card {
-	width: 100%;
-	border-radius: var(--border-radius-primary);
-	overflow: hidden;
-	transition: var(--transition-default);
-	max-height: 190px;
-	aspect-ratio: 1/1.1;
-}
-
-.hero .cards .card .wrapper-image-card img {
-	transition: var(--transition-default);
-	aspect-ratio: 1/1.1;
-	object-fit: cover;
-	width: 100%;
-}
-
-.hero .cards .card.active {
-	filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, 0.2));
-}
-
-.hero .cards .card.active .wrapper-image-card {
-	aspect-ratio: 1/1.3;
-}
-
-.hero .cards .card.active .wrapper-image-card img {
-	aspect-ratio: 1/1.3;
-}
-
-.hero .cards .card .card-title {
-	margin: 0.45rem 0 0;
-	font-size: var(--font-size-p10);
-}
-
-aside {
-	display: flex;
-	flex-flow: column;
-	justify-content: space-between;
-	min-width: 29%;
-	padding: var(--padding-wrapper);
-	background-color: var(--color-dark-blue);
-	color: #fff;
-	border-top-right-radius: var(--border-radius-primary);
-	border-bottom-right-radius: var(--border-radius-primary);
-}
-
-aside header {
-	display: flex;
-	flex-flow: nowrap;
-	align-items: center;
-	justify-content: space-between;
-	font-weight: 400;
-}
-
-aside header ul {
-	align-items: center;
-}
-
-aside header ul,
-aside header li {
-	margin: 0;
-	padding: 0;
-}
-
-aside header ul {
-	list-style-type: none;
-	display: flex;
-	color: #fff;
-}
-
-aside header li {
-	margin-right: 1rem;
-}
-
-aside header .alerts {
-	display: inline-block;
-	background-color: red;
-	padding: 0.18rem 0.35rem;
-	margin-left: 0.1em;
-	font-size: 0.8rem;
-	vertical-align: middle;
-	border-radius: 6px;
-	text-align: center;
-}
-
-aside header a {
-	color: #fff;
-	font-size: 0.7rem;
-	text-decoration: none;
-}
-
-aside header .user-avatar {
-	width: 42px;
-	height: 42px;
-	background: #fff url(/images/av-fig.jpg) no-repeat center center/cover;
-	border-radius: 50%;
-	position: relative;
-}
-
-aside .user-avatar:before {
-	content: '';
-	position: absolute;
-	top: 0;
-	width: 10px;
-	height: 10px;
-	background-color: red;
-	right: 0;
-	border-radius: 50%;
-}
-
-aside .daily-conditions {
-	margin: 4.4rem 0;
-	text-align: center;
-	display: flex;
-	flex-flow: column;
-}
-
-aside .daily-conditions .date-conditions {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-
-aside .daily-conditions .date-conditions picture {
-	width: 45px;
-	margin-right: .5rem;
-}
-
-aside .daily-conditions .date-conditions picture img {
-	width: 100%;
-}
-
-aside .daily-conditions .date-conditions .date-info {
-	display: flex;
-	text-align: left;
-	flex-flow: column;
-}
-
-aside .daily-conditions .date-conditions .date-info .day {
-	font-size: var(--font-size-p17);
-	margin-bottom: 0.2rem;
-}
-
-aside .daily-conditions .date-conditions .date-info .week-day {
-	font-size: var(--font-size-p10);
-	font-weight: 200;
-	color: var(--color-gray-light);
-}
-
-aside .daily-conditions .temperature-value {
-	font-size: 6rem;
-	font-weight: 200;
-	vertical-align: top;
-	line-height: 1;
-	position: relative;
-}
-
-aside .daily-conditions .temperature-value .celsius {
-	font-size: 2rem;
-	font-size: 2rem;
-	position: absolute;
-	top: 0.5rem;
-	color: var(--color-gray-light);
-}
-
-aside .daily-conditions .city-name {
-	font-size: var(--font-size-p12);
-	color: var(--color-gray-light);
-}
-
-aside .weekly-forecast {
-	font-size: var(--font-size-p12);
-	font-weight: 400;
-	display: flex;
-	flex-flow: column;
-}
-
-aside .weekly-forecast .title {
-	font-size: 0.8rem;
-}
-
-aside .weekly-forecast .row {
-	display: flex;
-	margin-top: 1.5rem;
-	justify-content: space-between;
-	padding: 0 1.8em;
-	align-content: center;
-	text-align: center;
-	font-size: 0.8rem;
-}
-
-aside .weekly-forecast .col div {
-	margin-top: .5rem;
-}
-
-aside .weekly-forecast .col .min-temp,
-aside .weekly-forecast .col .max-temp {
-	font-size: 1rem;
-}
-
-aside .weekly-forecast picture {
-	width: 40px;
-	height: 40px;
-	display: inline-block;
-}
-
-aside .weekly-forecast picture img {
-	max-width: 100%;
-}
-
 /* toggle theme */
-.toggle input{
+.toggle{
+	opacity: .5;
+	transition: var(--transition-default);
+}
+.toggle:hover{
+	opacity: 1;
+}
+.toggle input {
 	width: 0;
 	height: 0;
 	position: absolute;
@@ -341,7 +112,7 @@ aside .weekly-forecast picture img {
 	visibility: hidden;
 }
 
-.toggle .toggle-selector{
+.toggle .toggle-selector {
 	width: 45px;
 	border: 2px solid var(--color-dark-mode-light-blue);
 	height: 23px;
@@ -353,6 +124,7 @@ aside .weekly-forecast picture img {
 .toggle .toggle-selector * {
 	box-sizing: border-box;
 }
+
 .toggle .toggle-selector .wrapper-icons {
 	width: 17.5px;
 	height: 17.5px;
@@ -365,7 +137,7 @@ aside .weekly-forecast picture img {
 	margin-left: 3px;
 }
 
-.toggle .toggle-selector svg{
+.toggle .toggle-selector svg {
 	display: none;
 	width: 70%;
 	position: absolute;
@@ -375,16 +147,16 @@ aside .weekly-forecast picture img {
 	transform: translateX(-50%);
 }
 
-.toggle.enabled .wrapper-icons{
+.toggle.enabled .wrapper-icons {
 	background-color: var(--color-dark-mode-light-blue);
 	transform: translateX(120%);
 }
 
-.hidden{
+.hidden {
 	display: none;
 }
-/* Dark Mode */
 
+/* Dark Mode */
 .darkmode body {
 	background: radial-gradient(50% 50% at 50% 50%, #5A6AA5 0%, #232B5F 100%);
 }
@@ -417,7 +189,14 @@ aside .weekly-forecast picture img {
 	color: var(--color-dark-mode-white);
 }
 
+.darkmode .hero .filters input:focus,
+.darkmode .hero .filters input:hover {
+	opacity: 1;
+}
+
 .darkmode .hero .filters input {
+	opacity: .5;
+	transition: var(--transition-default);
 	color: var(--color-dark-mode-white);
 	background: transparent url(/images/filter-white.svg) no-repeat 1rem center;
 	border: 1px solid var(--color-dark-mode-light-blue);
