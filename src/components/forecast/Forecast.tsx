@@ -42,7 +42,7 @@ export function Forecast({ selectedCity, data }: Props) {
         <div className="date-conditions">
           {data.list &&
             <picture>
-              <img src={`http://openweathermap.org/img/wn/${preparedData(data)[0].weather[0].icon}@2x.png`} alt="current-weather-icon" />
+              <img src={`https://openweathermap.org/img/wn/${preparedData(data)[0].weather[0].icon}@2x.png`} alt="current-weather-icon" />
             </picture>
           }
           <div className="date-info">
