@@ -1,2 +1,2 @@
-# React Weather App
-Weather APP made with React and Weather API
+# React World Weather App
+World Weather APP is made with React and integrate with Open Weather API
