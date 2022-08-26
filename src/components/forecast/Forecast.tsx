@@ -2,7 +2,7 @@ import moment from "moment";
 import { useEffect, useState } from "react";
 import { City, OpenWeather, DailyTemperatures } from "../../shared/types";
 import { formatWeekly } from "../../shared/utils";
-import Daily from "./Daily";
+import {Daily} from "./Daily";
 
 type Props = {
   data: OpenWeather;
