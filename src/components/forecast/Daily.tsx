@@ -12,7 +12,7 @@ export function Daily({daily}: Props) {
       <div className="min-temp">{daily.min}°</div>
       <div className="max-temp">{daily.max}°</div>
       <picture>
-        <img src={`http://openweathermap.org/img/wn/${daily.icon}@2x.png`} alt="daily-weather-icon" />
+        <img src={`https://openweathermap.org/img/wn/${daily.icon}@2x.png`} alt="daily-weather-icon" />
       </picture>
     </>
   )
