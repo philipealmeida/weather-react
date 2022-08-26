@@ -6,7 +6,7 @@ type Props = {
   selectedCity: City;
 };
 
-function Card({city, selectCity, selectedCity}: Props) {
+export function Card({city, selectCity, selectedCity}: Props) {
   if (!city)
     return <div></div>;
 
@@ -21,5 +21,3 @@ function Card({city, selectCity, selectedCity}: Props) {
     </div>
   )
 }
-
-export default Card;

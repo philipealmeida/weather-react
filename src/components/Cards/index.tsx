@@ -1,5 +1,5 @@
 import { City } from "../../shared/types";
-import Card from "./Card";
+import {Card} from "./Card";
 
 type Props = {
   cities: City[];
