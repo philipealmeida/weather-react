@@ -2,9 +2,9 @@ import React, { FormEvent, useEffect, useState } from "react";
 import { cities, weatherAPI } from './shared/utils/'
 import { City, OpenWeather } from "./shared/types";
 import './App.css'
-import Cards from "./components/cards";
-import Forecast from "./components/forecast";
-import AsideHeader from "./components/headers/AsideHeader";
+import {Cards} from "./components/cards";
+import {AsideHeader} from "./components/headers/AsideHeader";
+import {Forecast} from "./components/forecast";
 
 function App() {
   const [filter, setFilter] = useState<string>('');
@@ -15,6 +15,7 @@ function App() {
   const onFilterChange = (event: FormEvent<HTMLInputElement>) => {
     setFilter(event.currentTarget.value);
   };
+
   const resetFilter = () => {
     setFilter('');
   };
@@ -34,7 +35,6 @@ function App() {
       }
     };
     fetchData();
-
   }, [selectedCity])
 
   useEffect(() => {

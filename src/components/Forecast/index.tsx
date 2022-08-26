@@ -9,7 +9,7 @@ type Props = {
   selectedCity: City;
 };
 
-function Forecast({ selectedCity, data }: Props) {
+export function Forecast({ selectedCity, data }: Props) {
   const [minMaxTemp, setMinMaxTemp] = useState<DailyTemperatures[]>([{ day: '', icon: '', min: 0, max: 0 }]);
   const preparedData = (data: OpenWeather) => {
     return [
@@ -71,5 +71,3 @@ function Forecast({ selectedCity, data }: Props) {
     </>
   )
 }
-
-export default Forecast;

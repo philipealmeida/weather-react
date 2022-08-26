@@ -1,6 +1,6 @@
 import React from 'react'
 
-function AsideHeader() {
+export function AsideHeader() {
   return (
     <>
       <header>
@@ -19,5 +19,3 @@ function AsideHeader() {
     </>
   )
 }
-
-export default AsideHeader
