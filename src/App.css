@@ -4,6 +4,11 @@
 :root {
 	margin: 0;
 	padding: 0;
+
+	--color-dark-mode-white: #E9E9E9;
+	--color-dark-mode-light-blue: #9292DB;
+
+
 	--color-dark-blue: #100f3b;
 	--color-mostard: #eec300;
 	--color-gray-light: #f2fbff;
@@ -15,6 +20,11 @@
 	--font-size-p17: 1.066rem;
 	--font-size-p12: 0.75rem;
 	--font-size-p10: 0.65rem;
+	--transition-default: 250ms ease;
+}
+
+*{
+	transition: var(--transition-default);
 }
 
 @media (prefers-reduced-motion: no-preference) {}
@@ -108,7 +118,7 @@ article {
 	cursor: pointer;
 	margin-left: 5%;
 	margin-top: 3.4em;
-	transition: 250ms ease;
+	transition: var(--transition-default);
 }
 
 .hero .cards .card:nth-child(4n+1){
@@ -119,13 +129,13 @@ article {
 	width: 100%;
 	border-radius: var(--border-radius-primary);
 	overflow: hidden;
-	transition: 250ms ease;
+	transition: var(--transition-default);
 	max-height: 190px;
 	aspect-ratio: 1/1.1;
 }
 
 .hero .cards .card .wrapper-image-card img {
-	transition: 250ms ease;
+	transition: var(--transition-default);
 	aspect-ratio: 1/1.1;
 	object-fit: cover;
 	width: 100%;
@@ -322,4 +332,54 @@ aside .weekly-forecast picture{
 
 aside .weekly-forecast picture img{
 	max-width: 100%;
+}
+
+@media (prefers-color-scheme: dark) {
+  /* .day.dark-scheme   { background:  #333; color: white; }
+  .night.dark-scheme { background: black; color:  #ddd; } */
+
+	body{
+		background: radial-gradient(50% 50% at 50% 50%, #5A6AA5 0%, #232B5F 100%);
+	}
+	body,
+	.hero-title{
+		color: 	var(--color-dark-mode-white);
+	}
+
+	article{
+		background: radial-gradient(29.63% 90.27% at 32.01% 49.35%, #1E1D45 0%, #100F3B 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+	}
+
+	aside, aside header a{
+		color: 	var(--color-dark-mode-white);
+	}
+
+
+	.hero .filters button{
+		color: 	var(--color-dark-mode-light-blue);
+		transition: var(--transition-default);
+	}
+
+	.hero .filters button:hover{
+		color: 	var(--color-dark-mode-white);
+	}
+
+	.hero .filters input{
+		color: 	var(--color-dark-mode-white);
+		background: transparent url(/images/filter-white.svg) no-repeat 1rem center;
+		border: 1px solid var(--color-dark-mode-light-blue);
+	}
+
+	::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+		color: var(--color-dark-mode-light-blue);;
+		opacity: 1; /* Firefox */
+	}
+	
+	:-ms-input-placeholder { /* Internet Explorer 10-11 */
+		color: var(--color-dark-mode-light-blue);;
+	}
+	
+	::-ms-input-placeholder { /* Microsoft Edge */
+		color: var(--color-dark-mode-light-blue);;
+	}
 }

@@ -1,5 +1,3 @@
-import { useEffect, useState } from "react";
-import { cities } from '../../shared/utils/'
 import { City } from "../../shared/types";
 import Card from "./Card";
 
