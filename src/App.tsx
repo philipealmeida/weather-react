@@ -2,9 +2,9 @@ import React, { FormEvent, useEffect, useState } from "react";
 import { cities, weatherAPI } from './shared/utils/'
 import { City, OpenWeather } from "./shared/types";
 import './App.css'
-import {Cards} from "./components/cards";
+import {Cards} from "./components/cards/Cards";
 import {AsideHeader} from "./components/headers/AsideHeader";
-import {Forecast} from "./components/forecast";
+import {Forecast} from "./components/forecast/Forecast";
 
 function App() {
   const [filter, setFilter] = useState<string>('');
