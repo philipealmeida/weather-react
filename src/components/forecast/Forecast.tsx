@@ -36,7 +36,7 @@ export function Forecast({ selectedCity, data }: Props) {
     setMinMaxTemp(weeklyMinMaxTemp(data));
   }, [data]);
 
-  if (!data) return <div></div>;
+  if (!data) return <></>;
   return (
     <>
       <section className="daily-conditions">
