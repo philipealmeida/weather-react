@@ -2,8 +2,8 @@ import React, { FormEvent, useEffect, useState } from "react";
 import { cities, weatherAPI } from './shared/utils/'
 import { City, OpenWeather } from "./shared/types";
 import './App.css'
-import Grid from "./components/cards/Grid";
-import {AsideHeader} from "./components/headers/AsideHeader";
+import {Grid} from "./components/grid/Grid";
+import {AsideHeader} from "./components/header/AsideHeader";
 import {Forecast} from "./components/forecast/Forecast";
 
 function App() {
