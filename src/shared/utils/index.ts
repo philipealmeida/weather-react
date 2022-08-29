@@ -3,7 +3,7 @@ import { City, DailyTemperatures, DailyTemperaturesAccumulator, OpenWeather } fr
 export const cities = [
   { name: 'Berlim', country: 'Germany', lat: 52.523430, long: 13.411440 },
   { name: 'Paris', country: 'France', lat: 48.856613, long: 2.352222 },
-  { name: 'Porto', country: 'Portugal', lat: 41.157944, long: 3 },
+  { name: 'Porto', country: 'Portugal', lat: 41.1579, long: 8.6291 },
   { name: 'London', country: 'England', lat: 3, long: -8.6108 },
   { name: 'Tokyo', country: 'Japan', lat: 35.6897, long: 139.6922 },
   { name: 'Madrid', country: 'Spain', lat: 40.4167, long: -3.7167 },
