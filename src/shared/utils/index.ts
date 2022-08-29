@@ -1,14 +1,14 @@
 import { City, DailyTemperatures, DailyTemperaturesAccumulator, OpenWeather } from "../types"
 
 export const cities = [
-  { name: 'Berlim', country: 'Germany', lat: 52.523430, long: 13.411440 },
-  { name: 'Paris', country: 'France', lat: 48.856613, long: 2.352222 },
-  { name: 'Porto', country: 'Portugal', lat: 41.1579, long: 8.6291 },
-  { name: 'London', country: 'England', lat: 3, long: -8.6108 },
-  { name: 'Tokyo', country: 'Japan', lat: 35.6897, long: 139.6922 },
-  { name: 'Madrid', country: 'Spain', lat: 40.4167, long: -3.7167 },
-  { name: 'Rome', country: 'Italy', lat: 48.8566, long: 2.3522 },
-  { name: 'Jerusalem', country: 'Israel', lat: 31.7683, long: 35.2137 },
+  { name: 'Berlin', country: 'Germany', lat: 54.033329, long: 10.45 },
+  { name: 'Paris', country: 'France', lat: 48.853401, long: 2.3486 },
+  { name: 'Porto', country: 'Portugal', lat: 41.149609, long: -8.61099 },
+  { name: 'London', country: 'England', lat: 51.50853, long: -0.12574 },
+  { name: 'Tokyo', country: 'Japan', lat: 35.689499, long: 139.691711 },
+  { name: 'Madrid', country: 'Spain', lat: 40.489349, long: -3.68275 },
+  { name: 'Rome', country: 'Italy', lat: 41.894741, long: 12.4839 },
+  { name: 'Jerusalem', country: 'Israel', lat: 31.75, long: 35.0 },
 ] as City[];
 
 export const weatherAPI = {
