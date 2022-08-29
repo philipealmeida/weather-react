@@ -122,7 +122,7 @@ aside .daily-conditions .temperature-value {
 	position: relative;
 }
 
-aside .daily-conditions .temperature-value .celsius {
+aside .daily-conditions .temperature-value .unit-temp {
 	font-size: 2rem;
 	font-size: 2rem;
 	position: absolute;

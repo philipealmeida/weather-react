@@ -1,9 +1,11 @@
 import moment from "moment";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { ForecastContext } from "../../hoc/forecast-context";
+import { useForecast } from "../../shared/hooks/useForecast";
 import { City, OpenWeather, DailyTemperatures } from "../../shared/types";
 import { formatWeekly } from "../../shared/utils";
 import ToggleUnitTemp from "../toggles/unit-temp/ToggleUnitTemp";
-import {Daily} from "./Daily";
+import { Daily } from "./Daily";
 
 type Props = {
   data: OpenWeather;
@@ -11,6 +13,9 @@ type Props = {
 };
 
 export function Forecast({ selectedCity, data }: Props) {
+  const { isFahrenheit } = useContext(ForecastContext);
+  const { formatTemp } = useForecast();
+
   const [minMaxTemp, setMinMaxTemp] = useState<DailyTemperatures[]>([{ day: '', icon: '', min: 0, max: 0 }]);
   const preparedData = (data: OpenWeather) => {
     return [
@@ -24,7 +29,7 @@ export function Forecast({ selectedCity, data }: Props) {
 
   useEffect(() => {
     const weeklyMinMaxTemp = (data: OpenWeather) => {
-      const days = formatWeekly(data); 
+      const days = formatWeekly(data);
       return [
         { day: 'Today', icon: days[0].icon, min: Math.floor(Math.min(...days[0].acc_min)), max: Math.floor(Math.max(...days[0].acc_max)) },
         { day: `${moment(moment().add(1, 'days')).format("D")} ${moment(moment().add(1, 'days')).format("MMM")}`, icon: days[1].icon, min: Math.floor(Math.min(...days[1].acc_min)), max: Math.floor(Math.max(...days[1].acc_max)) },
@@ -54,10 +59,12 @@ export function Forecast({ selectedCity, data }: Props) {
           </div>
 
         </div>
-        <span className="temperature-value">{Math.round(preparedData(data)[0].main.feels_like)}<span className="celsius">°C</span></span>
+        <span className="temperature-value">{formatTemp(preparedData(data)[0].main.temp)}
+          <span className="unit-temp">°{isFahrenheit ? 'F' : 'C'}</span>
+        </span>
         <span className="city-name">{selectedCity.name}, {selectedCity.country}</span>
         <div>
-          <ToggleUnitTemp/>
+          <ToggleUnitTemp />
         </div>
       </section>
 

@@ -1,10 +1,11 @@
-import React, { useState, useEffect, KeyboardEvent } from "react";
+import React, { useState, useEffect, KeyboardEvent, useContext } from "react";
+import { ForecastContext } from "../../../hoc/forecast-context";
 import "./ToggleUnitTemp.css";
 export default function ToggleUnitTemp() {
-  const [isEnabled, setIsEnabled] = useState(false);
+  const { isFahrenheit, setIsFahrenheit } = useContext(ForecastContext);
 
   const toggleState = () => {
-    setIsEnabled((prevState) => !prevState);
+    setIsFahrenheit(!isFahrenheit);
   };
 
   const handleKeyDown = (e: KeyboardEvent<HTMLLabelElement>) => {
@@ -17,8 +18,8 @@ export default function ToggleUnitTemp() {
       className="toggle-unit-temp toggle-wrapper"
       onKeyDown={handleKeyDown}
       tabIndex={0}
-      htmlFor="toggle-unit-temp">
-      <div className={`toggle ${isEnabled ? "enabled" : "disabled"}`}>
+      htmlFor="toggle-unit-temp"> 
+      <div className={`toggle ${isFahrenheit ? "enabled" : "disabled"}`}>
         <input
           id="toggle-unit-temp"
           name="toggle"

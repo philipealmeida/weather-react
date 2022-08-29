@@ -8,10 +8,8 @@ import App from '../App';
 test('Renders main page correctly', async () => {
     // Setup
     const {container} = render(<App />);
-    // const inputEl = await screen.findByRole('input');
 
     // Pre Expcations
-    // expect(inputEl.innerHTML).toBe('count is: 0');
 
     // Init
 
