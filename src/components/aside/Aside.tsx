@@ -12,14 +12,12 @@ type Props = {
 export function Aside({ selectedCity }: Props) {
   const url = `${weatherAPI.OPEN_WEATHER_URL}/forecast?lat=${selectedCity.lat}&lon=${selectedCity.long}&units=metric&lang=en&APPID=${weatherAPI.OPEN_WEATHER_API_KEY}`;
   const { data } = useOpenWeather(url);
-  if (!data)
-    return <></>
 
   return (
     <>
       <aside>
         <AsideHeader />
-        <ForecastContainer data={data} selectedCity={selectedCity} />
+        {data && <ForecastContainer data={data} selectedCity={selectedCity} />}
       </aside>
     </>
   )

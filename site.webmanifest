@@ -1,0 +1,15 @@
+{
+  "name": "World Weather",
+  "short_name": "world weather app by Philipe Almeida",
+  "icons": [
+      {
+          "src": "images/android-icon-36x36.png",
+          "sizes": "36x36",
+          "type": "image/png",
+          "density": "0.75"
+      }
+  ],
+  "theme_color": "#1E1D45",
+  "background_color": "#1E1D45",
+  "display": "standalone"
+}

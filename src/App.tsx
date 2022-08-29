@@ -4,6 +4,7 @@ import { City } from "./shared/types";
 import './App.css'
 import { Grid } from "./components/grid/Grid";
 import { Aside } from "./components/aside/Aside";
+import Footer from "./components/folder/Footer";
 
 function App() {
   const [filter, setFilter] = useState<string>('');
@@ -45,9 +46,9 @@ function App() {
           </header>
           <Grid cities={filtered} selectCity={selectCity} selectedCity={selectedCity} />
         </section>
-
         <Aside selectedCity={selectedCity}/>
       </article>
+      <Footer/>
     </main>
   )
 }
