@@ -16,6 +16,7 @@ export default function ToggleUnitTemp() {
   return (
     <label 
       className="toggle-unit-temp toggle-wrapper"
+      data-testid="toggle-unit-temp"
       onKeyDown={handleKeyDown}
       tabIndex={0}
       htmlFor="toggle-unit-temp"> 

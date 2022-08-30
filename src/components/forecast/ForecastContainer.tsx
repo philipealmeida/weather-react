@@ -10,7 +10,7 @@ type Props = {
 
 export function ForecastContainer({ data, selectedCity }: Props) {
   const [isFahrenheit, setIsFahrenheit] = useState<boolean>(false);
-  const value = { isFahrenheit, setIsFahrenheit };
+  const value:ForecastContextProps = { isFahrenheit, setIsFahrenheit };
 
   if (!data) 
     return <div></div>;

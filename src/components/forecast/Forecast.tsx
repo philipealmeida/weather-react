@@ -41,44 +41,50 @@ export function Forecast({ selectedCity, data }: Props) {
     setMinMaxTemp(weeklyMinMaxTemp(data));
   }, [data]);
 
-  if (!data) return <></>;
   return (
     <>
-      <section className="daily-conditions">
-        <div className="date-conditions">
-          {data.list &&
-            <picture>
-              <img src={`https://openweathermap.org/img/wn/${preparedData(data)[0].weather[0].icon}@2x.png`} alt="current-weather-icon" />
-            </picture>
-          }
-          <div className="date-info">
-            <span className="day">Today</span>
-            <span className="week-day">
-              {moment(new Date()).format("ddd")}, {moment(new Date()).format("D")} {moment(new Date()).format("MMM")}
-            </span>
-          </div>
+      <div className="forecasts-container">
+        {!data ? <p>Fetching weather forecast...</p> : (
+          <>
+            <section className="daily-conditions">
+              <div className="date-conditions">
+                {data.list &&
+                  <picture>
+                    <img src={`https://openweathermap.org/img/wn/${preparedData(data)[0].weather[0].icon}@2x.png`} alt="current-weather-icon" />
+                  </picture>
+                }
+                <div className="date-info">
+                  <span className="day">Today</span>
+                  <span className="week-day">
+                    {moment(new Date()).format("ddd")}, {moment(new Date()).format("D")} {moment(new Date()).format("MMM")}
+                  </span>
+                </div>
 
-        </div>
-        <span className="temperature-value">{formatTemp(preparedData(data)[0].main.temp)}
-          <span className="unit-temp">°{isFahrenheit ? 'F' : 'C'}</span>
-        </span>
-        <span className="city-name">{selectedCity.name}, {selectedCity.country}</span>
-        <div>
-          <ToggleUnitTemp />
-        </div>
-      </section>
+              </div>
+              <span className="temperature-value">{formatTemp(preparedData(data)[0].main.temp)}
+                <span className="unit-temp">°{isFahrenheit ? 'F' : 'C'}</span>
+              </span>
+              <span className="city-name">{selectedCity.name}, {selectedCity.country}</span>
+              <div>
+                <ToggleUnitTemp />
+              </div>
+            </section>
 
-      <section className="weekly-forecast">
-        <span className="title">Daily Forecast</span>
-        <div className="row">
-          {data.list && preparedData(data).map((list, index) => (
-            <div className="col" key={list.dt}>
-              <Daily daily={minMaxTemp[index]} />
-            </div>
-          ))}
-        </div>
+            <section className="weekly-forecast">
+              <span className="title">Daily Forecast</span>
+              <div className="row">
+                {data.list && preparedData(data).map((list, index) => (
+                  <div className="col" key={list.dt}>
+                    <Daily daily={minMaxTemp[index]} />
+                  </div>
+                ))}
+              </div>
 
-      </section>
+            </section>
+          </>
+        )
+        }
+      </div>
     </>
   )
 }
