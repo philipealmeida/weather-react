@@ -4,7 +4,7 @@ import { City } from "./shared/types";
 import './App.css'
 import { Grid } from "./components/grid/Grid";
 import { Aside } from "./components/aside/Aside";
-import Footer from "./components/folder/Footer";
+import {Footer} from "./components/footer/Footer";
 
 function App() {
   const [filter, setFilter] = useState<string>('');

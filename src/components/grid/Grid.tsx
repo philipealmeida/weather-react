@@ -13,11 +13,11 @@ export function Grid({cities, selectCity, selectedCity}: Props) {
   return (
     <section className="cards">
       <div className="row">
-        {cities.map((city, index) => (
+        {cities.map((city) => (
           <Card city={city} 
           selectCity={selectCity}
           selectedCity={selectedCity}
-          key={index}
+          key={city.name}
            />
         ))}
       </div>
