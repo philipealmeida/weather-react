@@ -1,22 +1,21 @@
 import React, { useState, useEffect, KeyboardEvent } from "react";
 
-const updateTheme = (isDarkEnabled: boolean) => {
-  if (isDarkEnabled) {
+const updateTheme = (isDark: boolean) => {
+  if (isDark)
     document.querySelector<HTMLInputElement>("html")?.classList.add("darkmode");
-  } else {
+  else
     document.querySelector("html")?.classList.remove("darkmode");
-  }
 };
 
 export default function ToggleTheme() {
-  const [isDark, setIsEnabled] = useState(false);
+  const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
     updateTheme(isDark);
   }, [isDark]);
 
   const toggleState = () => {
-    setIsEnabled((prevState) => !prevState);
+    setIsDark((prevState) => !prevState);
   };
 
   const handleKeyDown = (e: KeyboardEvent<HTMLLabelElement>) => {
@@ -26,20 +25,19 @@ export default function ToggleTheme() {
 
   useEffect(() => {
     window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
-      if (!isDark)
-        toggleState();
+      setIsDark(window.matchMedia('(prefers-color-scheme: dark)').matches);
     });
-  
+    setIsDark(window.matchMedia('(prefers-color-scheme: dark)').matches);
     return () => {
-      window.matchMedia('(prefers-color-scheme: dark)').removeEventListener('change', () => {});
-    }
-  });
-  
+      window.matchMedia('(prefers-color-scheme: dark)').removeEventListener('change', () => { });
+    };
+  }, []);
+
   return (
     <label
       className="toggle-wrapper"
-      tabIndex={0} 
-      onKeyDown={handleKeyDown} 
+      tabIndex={0}
+      onKeyDown={handleKeyDown}
       htmlFor="toggle">
       <div className={`toggle ${isDark ? "enabled" : "disabled"}`}>
         <input
