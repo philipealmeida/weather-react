@@ -110,7 +110,6 @@ aside .daily-conditions .date-conditions .date-info .day {
 
 aside .daily-conditions .date-conditions .date-info .week-day {
 	font-size: var(--font-size-p10);
-	font-weight: 200;
 	color: var(--color-gray-light);
 }
 
