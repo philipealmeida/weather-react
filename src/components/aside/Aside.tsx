@@ -10,7 +10,7 @@ type Props = {
 };
 
 export function Aside({ selectedCity }: Props) {
-  const url = `${weatherAPI.OPEN_WEATHER_URL}/forecast?lat=${selectedCity.lat}&lon=${selectedCity.long}&units=metric&lang=en&APPID=${weatherAPI.OPEN_WEATHER_API_KEY}`;
+  const url = `${weatherAPI.OPEN_WEATHER_URL}/forecast?lat=${selectedCity.lat}&lon=${selectedCity.long}&units=metric&lang=en&APPID=${import.meta.env.VITE_OPEN_WEATHER_API_KEY}`;
   const { data } = useOpenWeather(url);
 
   return (

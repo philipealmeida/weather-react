@@ -13,7 +13,6 @@ export const cities = [
 
 export const weatherAPI = {
   OPEN_WEATHER_URL: 'https://api.openweathermap.org/data/2.5',
-  OPEN_WEATHER_API_KEY: '5adf1bc71454f25f0b1a2e5324fb4ecc',
   OPEN_WEATHER_ICON_URL: 'https://openweathermap.org/img/w'
 }
 
