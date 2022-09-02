@@ -50,7 +50,7 @@ export function Forecast({ selectedCity, data }: Props) {
               <div className="date-conditions">
                 {data.list &&
                   <picture>
-                    <img src={`https://openweathermap.org/img/wn/${preparedData(data)[0].weather[0].icon}@2x.png`} alt="current-weather-icon" />
+                    <img src={`https://openweathermap.org/img/wn/${data.list[0].weather[0].icon}@2x.png`} alt="current-weather-icon" />
                   </picture>
                 }
                 <div className="date-info">
@@ -59,9 +59,8 @@ export function Forecast({ selectedCity, data }: Props) {
                     {moment(new Date()).format("ddd")}, {moment(new Date()).format("D")} {moment(new Date()).format("MMM")}
                   </span>
                 </div>
-
               </div>
-              <span className="temperature-value">{formatTemp(preparedData(data)[0].main.temp)}
+              <span className="temperature-value">{formatTemp(data.list[0].main.temp)}
                 <span className="unit-temp">°{isFahrenheit ? 'F' : 'C'}</span>
               </span>
               <span className="city-name">{selectedCity.name}, {selectedCity.country}</span>

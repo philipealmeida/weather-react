@@ -9,8 +9,11 @@ export const useOpenWeather = (url: string) => {
     const fetchData = async () => {
       try {
         const response = await fetch(url);
-        const data = await response.json();
-        setData(data);
+        if (response.ok) {
+          const data = await response.json();
+          setData(data);
+          return;
+        }
       } catch (error) {
         throw new Error(`Error on fetch OpenWeather API with error: ${JSON.stringify(error)}`);
       }

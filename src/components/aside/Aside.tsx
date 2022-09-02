@@ -1,6 +1,5 @@
-import React from 'react'
 import { useOpenWeather } from '../../shared/hooks/useOpenWeather';
-import { OpenWeather, City } from '../../shared/types';
+import { City } from '../../shared/types';
 import { weatherAPI } from '../../shared/utils';
 import { ForecastContainer } from '../forecast/ForecastContainer'
 import { AsideHeader } from '../header/aside/AsideHeader'
